@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link class="logo" rel="icon" href="423599746_716395673896730_1529664709067650136_n-removebg-preview.png" type="icon type">
+    <title>BidaBite Login page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h1>Welcome to BidaBite</h1>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password">
+          <button type="submit"><a class="button" href="index.html">login</a></button>
+        </form>
+        <form>
+            <a class="hi" href="#"><p>Forgot password?</p></a>
+            <a class="hii" href="#" id="create-account-link"><p>Don't have an account</p></a>
+        </form>
+        <div id="create-account-form" style="display: none;">
+            <h2>Create Account</h2>
+            <form id="registration-form">
+                <label for="new-username">New Username:</label>
+                <input type="text" id="new-username" name="new-username">
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" name="new-password">
+                <button type="submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is already registered
+        const isUserRegistered = localStorage.getItem('registered');
+        if (isUserRegistered) {
+            document.getElementById('create-account-form').style.display = 'none';
+        }
+
+        // Login form submission
+        const loginForm = document.getElementById('login-form');
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            // Implement your login logic here
+            if (isUserRegistered && username === 'user' && password === 'password') {
+                // Successful login, redirect to the web page
+                window.location.href = 'web.html';
+            }
+        });
+
+        // Account creation form submission
+        const registrationForm = document.getElementById('registration-form');
+        registrationForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const newUsername = document.getElementById('new-username').value;
+            const newPassword = document.getElementById('new-password').value;
+            // Implement your account creation logic here
+            console.log('Creating account with:', newUsername, newPassword);
+            alert('Account created successfully!');
+            localStorage.setItem('registered', 'true');
+            document.getElementById('create-account-form').style.display = 'none';
+            registrationForm.reset(); // Reset the form after account creation
+        });
+
+        // Create account link click
+        const createAccountLink = document.getElementById('create-account-link');
+        createAccountLink.addEventListener('click', () => {
+            document.getElementById('create-account-form').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* login.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: orange;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-top: 50px;
+}
+
+.login-container {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.button {
+  color: #fff;
+}
+
+.hi, .hii {
+  text-align: center;
+}
+
+#create-account-form {
+  margin-top: 20px;
+}

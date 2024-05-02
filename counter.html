@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="423599746_716395673896730_1529664709067650136_n-removebg-preview.png" type="image/icon type">
+  <link rel="stylesheet" href="counter.css">
+  <title>BidaBite</title>
+</head>
+<body>
+    <header>
+      <div class="logo-container">
+          <img src="423599746_716395673896730_1529664709067650136_n-removebg-preview.png" alt="Food Website Logo" width="150" height="50">
+          <h1>BidaBite</h1>
+      </div>
+      <nav>
+          <ul>
+  
+            <li><a href="index.html"><b>Menu</b></a></li>
+            <li><a href="about.html"><b>AboutUs</b></a></li>
+            <li><a href="index.html"><b>Contact</b></a></li>
+            <li><a href="counter.html"><b>Counter</b></a></li>
+          </ul>
+      </nav>
+      <nav>
+          <ul>
+              <li><input type="placeholder"  class="place" name="search" placeholder="search"></li>
+          </ul>
+      </nav>
+  </header>
+  
+  <h1 style="text-align: center;">Counter</h1>
+  
+  <div class="order-counter">
+    <div class="product-details">
+      <img src="image0 (2).jpeg" alt="Burger" class="product-image">
+      <div>
+        <h3 class="product-name">Burger egg</h3>
+        <p class="product-description">Burger with fresh egg.</p>
+        <span class="product-price">90php</span>
+        <div class="quantity-counter">
+          <button class="minus-btn">-</button>
+          <input type="number" value="0" class="quantity-input">
+          <button class="plus-btn">+</button><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="product-details">
+      <img src="image0__1_-removebg-preview (1).png" alt="Burger" class="product-image">
+      <div>
+        <h3 class="product-name">Burger</h3>
+        <p class="product-description">Burger with egg.</p>
+        <span class="product-price">90php</span>
+        <div class="quantity-counter">
+          <button class="minus-btn">-</button>
+          <input type="number" value="0" class="quantity-input">
+          <button class="plus-btn">+</button><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="product-details">
+      <img src="image1__2_-removebg-preview (1).png" alt="Burger" class="product-image">
+      <div>
+        <h3 class="product-name">Red juice</h3>
+        <p class="product-description">Sweet and tasty juice.</p>
+        <span class="product-price">90php</span>
+        <div class="quantity-counter">
+          <button class="minus-btn">-</button>
+          <input type="number" value="0" class="quantity-input">
+          <button class="plus-btn">+</button><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="order-counter">
+    <div class="product-details">
+      <img src="image0.jpeg" alt="Burger" class="product-image">
+      <div>
+        <h3 class="product-name">Liwanag ng Langit</h3>
+        <p class="product-description">Bituin Bite.</p>
+        <span class="product-price">120php</span>
+        <div class="quantity-counter">
+          <button class="minus-btn">-</button>
+          <input type="number" value="0" class="quantity-input">
+          <button class="plus-btn">+</button><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="product-details">
+      <img src="image2.jpeg" alt="Burger" class="product-image">
+      <div>
+        <h3 class="product-name">BidaBite</h3>
+        <p class="product-description">Budget friendly.</p>
+        <span class="product-price">49php</span>
+        <div class="quantity-counter">
+          <button class="minus-btn">-</button>
+          <input type="number" value="0" class="quantity-input">
+          <button class="plus-btn">+</button><br><br>
+        </div>
+      </div>
+    </div>
+    <div class="product-details">
+      <img src="image0__1_-removebg-preview (1).png" alt="Burger" class="product-image">
+      <div>
+        <h3 class="product-name">Burger</h3>
+        <p class="product-description">Burger with egg.</p>
+        <span class="product-price">90php</span>
+        <div class="quantity-counter">
+          <button class="minus-btn">-</button>
+          <input type="number" value="0" class="quantity-input">
+          <button class="plus-btn">+</button><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <button class="order-btn" style="display: block; margin: 0 auto;">Order now</button><br><br>
+  
+  <footer>
+    <h3>&copy; 2023 Food Website by William D Dosil. All rights reserved.</h3>
+  </footer>
+
+  <script>
+    const minusBtns = document.querySelectorAll('.minus-btn');
+    const plusBtns = document.querySelectorAll('.plus-btn');
+    const quantityInputs = document.querySelectorAll('.quantity-input');
+    const orderBtn = document.querySelector('.order-btn');
+
+    orderBtn.addEventListener('click', () => {
+      let orderDetails = '';
+
+      document.querySelectorAll('.product-details').forEach((product, index) => {
+        const productName = product.querySelector('.product-name').textContent;
+        const quantity = parseInt(quantityInputs[index].value);
+        const productPrice = parseInt(product.querySelector('.product-price').textContent);
+
+        if (quantity > 0) {
+          orderDetails += `- ${productName} x ${quantity}\n`;
+        }
+      });
+
+      orderDetails += `Total Price: ${calculateTotalPrice()}php`;
+
+      window.location.href = `mailto:dosilwilliam@gmail.com?subject=Combined Order%20from%20BidaBite&body=${encodeURIComponent(orderDetails)}`;
+    });
+
+    function calculateTotalPrice() {
+      let totalPrice = 0;
+      document.querySelectorAll('.product-details').forEach((product, index) => {
+        const quantity = parseInt(quantityInputs[index].value);
+        const productPrice = parseInt(product.querySelector('.product-price').textContent);
+        totalPrice += quantity * productPrice;
+      });
+      return totalPrice;
+    }
+
+    minusBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        if (quantityInputs[index].value > 1) {
+          quantityInputs[index].value = parseInt(quantityInputs[index].value) - 1;
+        }
+      });
+    });
+
+    plusBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        quantityInputs[index].value = parseInt(quantityInputs[index].value) + 1;
+      });
+    });
+  </script>
+</body>
+</html>

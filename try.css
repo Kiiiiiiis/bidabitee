@@ -1,0 +1,7 @@
+section ul li {
+    background-color:#353434;
+    border: 1px solid #353434;
+    padding: 1rem;
+    flex-basis: calc(33.333% - 2rem);
+    text-align: center;
+}
